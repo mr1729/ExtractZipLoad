@@ -1,0 +1,35 @@
+server:
+  port: 8080
+spring:
+  batch:
+    initialize-schema: always
+    job:
+      enabled: false
+  hikari:
+    datasource:
+      mysql:
+        driverClassName: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://localhost:3306/sai?useSSL=false
+        username: root
+        password: password
+      postgres:
+        driverClassName: org.postgresql.Driver
+        jdbc-url: jdbc:postgresql://192.168.57.129:5432/zip
+        username: sai
+        password: password
+
+rabbit:
+  host: rabbit
+  user: guest
+  password: guest
+
+ssh:
+  host: 192.168.57.129
+  port: 22
+  username: sai
+  password: password
+
+---
+spring.config.activate.on-profile: worker
+server:
+  port: 8081
